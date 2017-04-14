@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+    <div class="login">
+        <h2>员工管理系统 v1.0</h2>
+        <table>
+            <tr>
+                <td>
+                    <label for="user">
+                        用户名：
+                    </label>
+                </td>
+                <td>
+                    <input type="text" id="user" placeholder="请输入用户名"/>
+                    <span ng-show="uError" class="uError">请输入用户名</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="password">
+                        密码：
+                    </label>
+                </td>
+                <td>
+                    <input type="password" id="password" placeholder="请输入密码"/>
+                    <span ng-show="pError" class="uError">请输入密码</span>
+                </td>
+            </tr>
+        </table>
+        <div style="text-align: center;margin-top:5px;">
+            <input ng-click="login()" type="button" value="登录" style="margin-right:10px;"/>
+            <a href="#/register" style="display:inline-block;margin-right:115px;"><input type="button" value="注册"/></a>
+        </div>
+    </div>
+</body>
+</html>

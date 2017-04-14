@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>view</title>
+</head>
+<body>
+    <div class="view">
+        <h3 style="text-align:left"> {{time}}，{{user}}! <button ng-click="exit()" class="exit" style="padding:3px 5px;position:relative;bottom:5px;">退出</button></h3>
+        <h2>员工列表
+            （<span>共{{total}}人</span>）
+            <span class="seachBox">查找：<input type="text" ng-model="seach" placeholder="如：男"/></span>
+            <button class="addBtn" ng-click="add()">新增</button>
+        </h2>
+        <table>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>备注</th>
+                <th>操作</th>
+            </tr>
+            <tr ng-repeat="x in names | filter:seach" id="{{x.id}}">
+                <td>{{$index + 1}}</td>
+                <td>{{x.name}}</td>
+                <td>{{x.sex}}</td>
+                <td>{{x.remark}}</td>
+                <td>
+                    <button ng-click="edit()" class="eBtn">修改</button>
+                    <button class="dBtn">删除</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div ng-show="showAddBox" class="addBoxWrapper">
+        <div class="addBox">
+            <h2>{{type}}员工</h2>
+            <table>
+                <tr>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>备注</th>
+                </tr>
+                <tr>
+                    <th><input class="name" type="text"/></th>
+                    <th>
+                        <!--<input class="sex" type="text"/>-->
+                        <select class="sex">
+                            <option value="男" selected="selected">男</option>
+                            <option value="女">女</option>
+                        </select>
+                    </th>
+                    <th><input class="remark" type="text"/></th>
+                </tr>
+            </table>
+            <div>
+                <button ng-show="isAdd" ng-click="addSave()">保存</button>
+                <button ng-show="isEdit" ng-click="editSave()">修改</button>
+                <button ng-click="addCancel()">取消</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
